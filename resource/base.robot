@@ -10,7 +10,7 @@ ${BASE_URL}                         https://tracking2nd-nonprod.ambevdevs.com.br
 ${APP_ID}                           br.com.hbsis.entrega
 ${APK}                              Entrega-Facil-v2.14.1-release.apk
 
-${SERVER_OPTION}                         id=${APP_ID}:id/rdbOutro
+${SERVER_OPTION}                    id=${APP_ID}:id/rdbOutro
 ${SERVIDOR_Url}                     id=${APP_ID}:id/etBaseUrl
 ${login_Nome_Servidor}              id=${APP_ID}:id/txtLabelNomeServidor
 ${DROPDOWN_SERVER}                  id=${APP_ID}:id/dropdownServerType
