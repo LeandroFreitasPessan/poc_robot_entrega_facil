@@ -16,6 +16,8 @@ def try_to_find_text(text):
     pass
 
 def check_multiples_routes():
+    AppiumLibrary.wait_until_page_contains(text='Selecione uma rota',timeout=30)
+
     try:
         AppiumLibrary.wait_until_element_is_visible('Selecione uma rota',timeout=30)
     except Exception as e:

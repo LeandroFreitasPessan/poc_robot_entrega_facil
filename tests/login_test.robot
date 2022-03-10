@@ -39,12 +39,14 @@ Select Server
     Input text                          ${AUTH_INPUT}                                   ${AUTH_URL}
     Input text                          ${TOUR_INPUT}                                   ${TOURS_URL}
     Input text                          ${PAYMENT_INPUT}                                ${PAYMENT_URL}
+    Swipe                               650     1500    650       500
+
     click element                       ${DROPDOWN_SERVER}
 
 
     BuiltIn.Sleep                               1
     #Tap                                 ${None}         725     2195
-    Swipe                               725     2195    0       0
+    click element                       id=br.com.hbsis.entrega:id/btConfirm
     BuiltIn.Sleep                               1
     click element                       id=br.com.hbsis.entrega:id/btConfirm
     BuiltIn.Sleep                               1
@@ -64,12 +66,20 @@ Login
     Wait Until Element Is Visible       ${Login_Entrar}
     click element                       ${Login_Entrar}
 
-Validate Loading
-    Wait until element is Visible     id=android:id/message
-    Wait until element is Visible     id=android:id/progress
+#Validate Loading
+    #Wait until element is Visible     id=android:id/message
+    #Wait until element is Visible     id=android:id/progress
 
 Multiple routes check
-    check multiples routes
+    Run Keyword And Ignore Error        Wait Until Element Is Visible        ${select_route}
+    ${element}                          Run Keyword And Ignore Error         Get Webelement ${select_route}
+    IF      ${element} != ${None}
+        click element                   id=br.com.hbsis.entrega:id/dropdownRoutes
+        click element                   id=br.com.hbsis.entrega:id/btSelectRoute
+        click element                   id=br.com.hbsis.entrega:id/btSelectRoute
+    END
+
+    #check multiples routes
 
     #click element                     id=br.com.hbsis.entrega:id/dropdownRoutes
 
@@ -106,7 +116,7 @@ Validating Pix Tutorial
 Validating NPS
     BuiltIn.sleep                   15
     wait until element is visible   ${NPS.question_element}
-
+    Swipe                               650     1500    650       500
     click element                   ${NPS.remember_later}
 
 Entering Delivery Screen
